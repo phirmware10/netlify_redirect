@@ -1,0 +1,23 @@
+{
+  "name": "netlify-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phirmware10/netlify_redirect.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phirmware10/netlify_redirect/issues"
+  },
+  "homepage": "https://github.com/phirmware10/netlify_redirect#readme",
+  "dependencies": {
+    "dotenv": "^14.2.0",
+    "superagent": "^7.1.1"
+  }
+}
