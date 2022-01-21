@@ -1,4 +1,4 @@
-require('dotenv').config()
+// require('dotenv').config()
 const superagent = require('superagent')
 const url = 'https://graphql.datocms.com/'
 
@@ -17,7 +17,12 @@ module.exports = {
   onPreBuild: async ({ netlifyConfig }) => {
     const { build: { environment } } = netlifyConfig
 
-    const config ={ token: environment.token || process.env.DATO_TOKEN }
+    console.log(environment.token, 'from environment')
+    console.log(process.env.DATO_TOKEN, 'from dotenv')
+
+    const config = { token: process.env.DATO_TOKEN }
+    const result = await fetchCount(config)
+    console.log(result, 'result')
     const { allCourseDownloads } = await fetchfiles(config)
     allCourseDownloads.length && allCourseDownloads.forEach(courseDownload => {
       const { slug, file: { url } } = courseDownload
@@ -40,6 +45,16 @@ function fetchfiles (config) {
         url
       }
       slug
+    }
+  }`
+
+  return datoFetch(query, {}, config)
+}
+
+function fetchCount (config) {
+  const query = `{
+    _allCourseDownloadsMeta {
+      count
     }
   }`
 

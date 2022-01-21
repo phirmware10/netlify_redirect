@@ -18,6 +18,7 @@
   "homepage": "https://github.com/phirmware10/netlify_redirect#readme",
   "dependencies": {
     "dotenv": "^14.2.0",
+    "express": "^4.17.2",
     "superagent": "^7.1.1"
   }
 }
